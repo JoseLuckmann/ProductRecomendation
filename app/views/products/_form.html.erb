@@ -1,0 +1,33 @@
+
+<%= form_with(model: product, local: true, multipart: true, html: { class: "my-3" }) do |form| %>
+<div class="card mx-auto" style="width: 50rem;">
+    <div class="card-header bg-warning">
+        <p class="font-weight-bold mb-0">Cadastro de produto</p>
+    </div>
+    <div class="card-body">
+        <div class="form-group">
+            <%= form.label :name, class: 'control-label' %>
+            <%= form.text_field :name, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+            <%= form.label :description, class: 'control-label' %>
+            <%= form.text_area :description, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+            <%= form.label :image, class: 'control-label' %>
+            <%= form.file_field :image, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+            <%= form.label :category, class: 'control-label' %>
+            <%= form.text_field :category, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+            <%= form.label :price, class: 'control-label' %>
+            <%= form.number_field :price, class: 'form-control' %>
+        </div>
+        <div class="actions">
+            <%= form.submit %>
+        </div>
+    </div>
+</div>
+<% end %>

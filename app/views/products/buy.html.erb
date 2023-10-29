@@ -1,0 +1,33 @@
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-8">
+            <h3>Shopping Cart</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8" id="cart-items">
+        </div>
+        <div class="col-md-4 text-center pl-md-5 pl-0">
+            <div class="card my-3">
+                <div class="card-header bg-transparent">
+                    <p class="text-center text-success my-0" style="font-size: 15px;">
+                    <i class="fas fa-check"></i>
+                    Frete Gratis 
+                    </p>
+                </div>
+                <div class="card-body text-center" style="background-color: #f3f3f3;">
+                    <p class="font-weight-bold">
+                    Subtotal (<b id="buy-cart-count"></b> items): 750.00 
+                    </p>
+                    <a href="select_address.html" class="btn btn-warning btn-sm btn-block">Finalizar compra</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const cartItemsContainer = document.getElementById('cart-items');
+    loadCartItems(cartItemsContainer);
+    document.getElementById("buy-cart-count").textContent = getCartItemCount();
+</script>

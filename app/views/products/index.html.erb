@@ -1,0 +1,102 @@
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-3">
+        <p class="text-capitalize font-weight-bold">avg. customer review</p>
+        <button class="btn btn-sm bg-transparent">
+            <i class="fas fa-star" style="color: #ffa41c;"></i>
+            <i class="fas fa-star" style="color: #ffa41c;"></i>
+            <i class="fas fa-star" style="color: #ffa41c;"></i>
+            <i class="fas fa-star" style="color: #ffa41c;"></i>
+            <i class="far fa-star" style="color: #ffa41c;"></i>
+            <span class="rating">& Up</span>
+        </button>
+        <br />
+        <button class="btn btn-sm bg-transparent">
+            <i class="fas fa-star" style="color: #ffa41c;"></i>
+            <i class="fas fa-star" style="color: #ffa41c;"></i>
+            <i class="fas fa-star" style="color: #ffa41c;"></i>
+            <i class="far fa-star" style="color: #ffa41c;"></i>
+            <i class="far fa-star" style="color: #ffa41c;"></i>
+            <span class="rating">& Up</span>
+        </button>
+        <br />
+        <button class="btn btn-sm bg-transparent">
+            <i class="fas fa-star" style="color: #ffa41c;"></i>
+            <i class="fas fa-star" style="color: #ffa41c;"></i>
+            <i class="far fa-star" style="color: #ffa41c;"></i>
+            <i class="far fa-star" style="color: #ffa41c;"></i>
+            <i class="far fa-star" style="color: #ffa41c;"></i>
+            <span class="rating">& Up</span>
+        </button>
+        <br />
+        <button class="btn btn-sm bg-transparent">
+            <i class="fas fa-star" style="color: #ffa41c;"></i>
+            <i class="far fa-star" style="color: #ffa41c;"></i>
+            <i class="far fa-star" style="color: #ffa41c;"></i>
+            <i class="far fa-star" style="color: #ffa41c;"></i>
+            <i class="far fa-star" style="color: #ffa41c;"></i>
+            <span class="rating">& Up</span>
+        </button>
+        <br />
+        </div>
+
+        <div class="col-md-9">
+        
+        <%= link_to "Novo Produto", new_product_path %>
+
+        <% @products.each do |product| %>
+        <div class="row border-top py-3">
+            <div class="col-md-4 text-center">
+            <% if product.image.attached? %>
+                <%= image_tag product.image, height: "200px"%>
+            <% end %>                
+            </div> 
+
+            <div class="col-md-8">
+            <%= link_to product.name, product %>
+            <p class="text-muted my-0"><%= product.category %></p>
+            <p>
+                <i class="fas fa-star" style="color: #ffa41c;"></i>
+                <i class="far fa-star" style="color: #ffa41c;"></i>
+                <i class="far fa-star" style="color: #ffa41c;"></i>
+                <i class="far fa-star" style="color: #ffa41c;"></i>
+                <i class="far fa-star" style="color: #ffa41c;"></i>
+            </p>
+            <p class="text-uppercase my-0 font-weight-bold text-danger">
+                <%= number_to_currency(product.price) %>
+            </p>
+            <p>
+                <%= link_to 'Editar', edit_product_path(product) %>
+                <%= link_to 'Deletar', product, method: :delete, data: { confirm: 'Confirma?' } %>
+            </p>
+            </div> 
+        </div> 
+        <% end %>
+        <div class="row border-bottom border-top pt-3">
+            <div class="col-md-12 d-flex justify-content-center">
+            <nav aria-label="...">
+                <ul class="pagination">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                    <i class="fas fa-long-arrow-alt-left"></i>
+                        Previous
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active" aria-current="page">
+                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">
+                    Next 
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                    </a>
+                </li>
+                </ul>
+            </nav>
+            </div>
+        </div>
+        </div> 
+    </div>
+</div>
